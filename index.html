@@ -1,740 +1,653 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>זהר אוריין | Triple Impact</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Zero to Tested Idea | זהר אוריין</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #111118;
-      --bg2: #16161f;
-      --bg3: #1c1c28;
-      --pink: #f0456b;
-      --orange: #ff7a38;
-      --blue: #4facfe;
-      --purple: #a855f7;
-      --text: #e8e8f0;
-      --muted: #9090aa;
-      --border: rgba(255,255,255,0.07);
-      --grad: linear-gradient(135deg, #f0456b, #ff7a38, #4facfe);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Heebo', 'Calibri', sans-serif;
+      font-family: 'Calibri', sans-serif;
       direction: rtl;
-      text-align: right;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      padding: 20px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(17,17,24,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-
-    nav.scrolled { padding: 14px 60px; background: rgba(17,17,24,0.97); }
-
-    .logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
-
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 60px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 70% at 20% 50%, rgba(240,69,107,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(79,172,254,0.1) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 50% 80%, rgba(168,85,247,0.08) 0%, transparent 60%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      width: 100%;
-      max-width: 1300px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(240,69,107,0.12);
-      border: 1px solid rgba(240,69,107,0.3);
-      color: var(--pink);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 24px;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--pink);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.5); }
-    }
-
-    .hero-name {
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 16px;
-      letter-spacing: -2px;
-    }
-
-    .hero-name span {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-role {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      color: var(--muted);
-      font-weight: 400;
-      margin-bottom: 32px;
+      background: #FFFFFF;
+      color: #000000;
       line-height: 1.6;
     }
 
-    .hero-role strong { color: var(--text); font-weight: 600; }
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E5E5E7;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
 
-    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .cta-nav {
+      background: #007AFF;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .cta-nav:hover {
+      opacity: 0.8;
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px 80px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero h1 .highlight {
+      color: #007AFF;
+    }
+
+    .hero .subtitle {
+      font-size: 24px;
+      color: #333333;
+      margin-bottom: 16px;
+      font-weight: normal;
+    }
+
+    .hero .description {
+      font-size: 18px;
+      color: #666666;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--grad);
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 100px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
-      font-family: 'Heebo', sans-serif;
-    }
-
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(240,69,107,0.35); }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--text);
-      padding: 14px 32px;
-      border-radius: 100px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .btn-outline:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
-
-    .hero-stats { display: flex; flex-direction: column; gap: 24px; }
-
-    .stat-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px 32px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-
-    .stat-card:hover { transform: translateX(-6px); border-color: rgba(240,69,107,0.3); }
-
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 3px;
-      height: 100%;
-    }
-
-    .stat-card:nth-child(1)::before { background: var(--pink); }
-    .stat-card:nth-child(2)::before { background: var(--orange); }
-    .stat-card:nth-child(3)::before { background: var(--blue); }
-
-    .stat-number { font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 6px; letter-spacing: -2px; }
-    .stat-card:nth-child(1) .stat-number { color: var(--pink); }
-    .stat-card:nth-child(2) .stat-number { color: var(--orange); }
-    .stat-card:nth-child(3) .stat-number { color: var(--blue); }
-    .stat-label { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
-
-    .section-wrap { padding: 100px 0; }
-    .section-wrap.alt { background: var(--bg2); }
-
-    .inner { max-width: 1300px; margin: 0 auto; padding: 0 60px; }
-
-    .section-tag {
       display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--pink);
-      margin-bottom: 16px;
+      background: #007AFF;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      transition: opacity 0.2s;
     }
 
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1px;
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    /* Section */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .section-bg {
+      background: #F5F5F7;
+    }
+
+    h2 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-intro {
+      font-size: 18px;
+      color: #666666;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #E5E5E7;
+    }
+
+    .section-bg .card {
+      background: white;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
       margin-bottom: 20px;
     }
 
-    .section-title span {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .card h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
     }
 
-    .section-subtitle { font-size: 1.05rem; color: var(--muted); max-width: 620px; line-height: 1.8; }
-    .divider { width: 60px; height: 3px; background: var(--grad); border-radius: 100px; margin: 20px 0 40px; }
-
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-text p { color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.85; }
-    .about-text p strong { color: var(--text); font-weight: 600; }
-
-    .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .about-chip {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      transition: all 0.3s;
+    .card p {
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.6;
     }
 
-    .about-chip:hover { border-color: rgba(240,69,107,0.3); transform: translateY(-4px); }
-    .about-chip .icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-    .about-chip .label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
-    .about-chip.wide { grid-column: 1 / -1; }
-
-    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
-
-    .expertise-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 36px 32px;
-      transition: all 0.35s;
-      position: relative;
-      overflow: hidden;
+    /* Stages */
+    .stages-grid {
+      display: grid;
+      gap: 32px;
+      margin-top: 60px;
     }
 
-    .expertise-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--grad);
-      opacity: 0;
-      transition: opacity 0.35s;
-    }
-
-    .expertise-card:hover { transform: translateY(-8px); border-color: transparent; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
-    .expertise-card:hover::after { opacity: 0.06; }
-
-    .expertise-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+    .stage {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
+      gap: 24px;
+      align-items: flex-start;
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #E5E5E7;
     }
 
-    .expertise-card:nth-child(1) .expertise-icon { background: rgba(240,69,107,0.15); }
-    .expertise-card:nth-child(2) .expertise-icon { background: rgba(255,122,56,0.15); }
-    .expertise-card:nth-child(3) .expertise-icon { background: rgba(79,172,254,0.15); }
-    .expertise-card:nth-child(4) .expertise-icon { background: rgba(168,85,247,0.15); }
-    .expertise-card:nth-child(5) .expertise-icon { background: rgba(240,69,107,0.15); }
-    .expertise-card:nth-child(6) .expertise-icon { background: rgba(255,122,56,0.15); }
-
-    .expertise-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; position: relative; z-index: 1; }
-    .expertise-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; position: relative; z-index: 1; }
-
-    .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 60px; position: relative; }
-
-    .phases::before {
-      content: '';
-      position: absolute;
-      top: 39px;
-      right: 16.66%;
-      left: 16.66%;
-      height: 2px;
-      background: var(--grad);
-      z-index: 0;
-    }
-
-    .phase { text-align: center; padding: 0 32px; position: relative; z-index: 1; }
-
-    .phase-num {
-      width: 80px;
-      height: 80px;
+    .stage-number {
+      width: 64px;
+      height: 64px;
+      background: white;
+      border: 2px solid #007AFF;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      font-weight: 900;
-      margin: 0 auto 28px;
+      flex-shrink: 0;
     }
 
-    .phase:nth-child(1) .phase-num { background: rgba(240,69,107,0.2); color: var(--pink); border: 2px solid var(--pink); }
-    .phase:nth-child(2) .phase-num { background: rgba(255,122,56,0.2); color: var(--orange); border: 2px solid var(--orange); }
-    .phase:nth-child(3) .phase-num { background: rgba(79,172,254,0.2); color: var(--blue); border: 2px solid var(--blue); }
-
-    .phase-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-    .phase:nth-child(1) .phase-label { color: var(--pink); }
-    .phase:nth-child(2) .phase-label { color: var(--orange); }
-    .phase:nth-child(3) .phase-label { color: var(--blue); }
-
-    .phase-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
-    .phase-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
-
-    .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
-
-    .tool-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      transition: all 0.3s;
+    .stage-icon {
+      width: 40px;
+      height: 40px;
     }
 
-    .tool-card:hover { border-color: rgba(79,172,254,0.3); transform: translateY(-4px); background: var(--bg3); }
+    .stage-content {
+      flex: 1;
+    }
 
-    .tool-icon {
-      width: 44px;
-      height: 44px;
+    .stage-content h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .stage-tag {
+      display: inline-block;
+      background: #007AFF;
+      color: white;
+      padding: 4px 12px;
       border-radius: 12px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .stage-content p {
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.7;
+    }
+
+    /* Deliverables */
+    .deliverables-section {
+      background: #000000;
+      color: white;
+      border-radius: 24px;
+      padding: 80px 40px;
+      margin: 80px 0;
+    }
+
+    .deliverables-section h2 {
+      color: white;
+    }
+
+    .deliverables-section .section-intro {
+      color: #CCCCCC;
+    }
+
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .deliverable-card {
+      background: #1C1C1E;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #333333;
+    }
+
+    .deliverable-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+    }
+
+    .deliverable-card h3 {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .deliverable-card p {
+      font-size: 16px;
+      color: #CCCCCC;
+      line-height: 1.6;
+    }
+
+    /* About */
+    .about-card {
+      background: #F5F5F7;
+      padding: 48px;
+      border-radius: 24px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .about-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #007AFF;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-      background: var(--bg3);
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
     }
 
-    .tool-name { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
-    .tool-sub { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
-
-    .impact-section {
-      background: linear-gradient(135deg, rgba(240,69,107,0.08) 0%, rgba(79,172,254,0.08) 100%);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .about-content h3 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 16px;
     }
 
-    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+    .about-content p {
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
 
-    .impact-card {
+    .stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .stat {
       text-align: center;
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      transition: all 0.3s;
     }
 
-    .impact-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-6px); }
-
-    .impact-number { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
-    .impact-card:nth-child(1) .impact-number { color: var(--pink); }
-    .impact-card:nth-child(2) .impact-number { color: var(--orange); }
-    .impact-card:nth-child(3) .impact-number { color: var(--blue); }
-    .impact-card:nth-child(4) .impact-number { color: var(--purple); }
-    .impact-label { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
-
-    .contact-center { text-align: center; }
-    .contact-center .section-subtitle { margin: 0 auto 48px; }
-    .contact-center .divider { margin: 20px auto 20px; }
-
-    .contact-card {
-      max-width: 700px;
-      margin: 0 auto;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      padding: 60px 48px;
+    .stat-number {
+      font-size: 32px;
+      font-weight: bold;
+      color: #007AFF;
     }
 
-    .contact-items { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+    .stat-label {
+      font-size: 14px;
+      color: #666666;
+      margin-top: 4px;
+    }
+
+    /* Contact */
+    .contact-section {
+      text-align: center;
+      padding: 100px 40px;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
 
     .contact-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 20px 28px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      gap: 12px;
+      font-size: 18px;
+      color: #000000;
       text-decoration: none;
-      color: var(--text);
-      font-size: 1.05rem;
-      font-weight: 500;
-      transition: all 0.3s;
     }
 
-    .contact-item:hover { border-color: rgba(240,69,107,0.4); background: rgba(240,69,107,0.08); transform: translateY(-2px); }
-    .contact-icon { font-size: 1.3rem; }
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+    }
 
+    /* Footer */
     footer {
-      padding: 40px 60px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.85rem;
+      background: #F5F5F7;
+      padding: 40px;
+      text-align: center;
+      color: #666666;
+      font-size: 14px;
     }
 
-    .footer-brand { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
 
-    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; }
+      .hero .subtitle {
+        font-size: 20px;
+      }
 
-    @media (max-width: 900px) {
-      nav { padding: 16px 24px; }
-      .nav-links { gap: 20px; }
-      #hero { padding: 100px 24px 60px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-      .inner { padding: 0 24px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .expertise-grid { grid-template-columns: 1fr 1fr; }
-      .phases { grid-template-columns: 1fr; gap: 40px; }
-      .phases::before { display: none; }
-      .tools-grid { grid-template-columns: 1fr 1fr; }
-      .impact-grid { grid-template-columns: 1fr 1fr; }
-      footer { flex-direction: column; gap: 12px; text-align: center; }
-    }
+      h2 {
+        font-size: 32px;
+      }
 
-    @media (max-width: 600px) {
-      .expertise-grid { grid-template-columns: 1fr; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .contact-card { padding: 36px 24px; }
+      .about-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .stats {
+        justify-content: center;
+      }
+
+      .stage {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="logo">Triple Impact</div>
-  <ul class="nav-links">
-    <li><a href="#about">אודות</a></li>
-    <li><a href="#expertise">מומחיות</a></li>
-    <li><a href="#methodology">מתודולוגיה</a></li>
-    <li><a href="#tools">כלים</a></li>
-    <li><a href="#contact">צור קשר</a></li>
-  </ul>
-</nav>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">From Zero to Tested Idea</div>
+    <a href="#contact" class="cta-nav">בואו נדבר</a>
+  </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid">
-    <div>
-      <div class="hero-badge fade-in">יועצת אסטרטגית ומומחית AI</div>
-      <h1 class="hero-name fade-in d1">זהר<br/><span>אוריין</span></h1>
-      <p class="hero-role fade-in d2">
-        <strong>יועצת אסטרטגית ומחנכת בכירה,</strong> מובילת תהליכי טרנספורמציה דיגיטלית וחדשנות ארגונית.<br/>
-        מייסדת מסגרת Triple Impact ותפיסת AI Next Layer.
-      </p>
-      <div class="hero-cta fade-in d3">
-        <a href="#contact" class="btn-primary">בואי נדבר ←</a>
-        <a href="#methodology" class="btn-outline">גלי את המתודולוגיה</a>
+  <!-- Hero -->
+  <div class="hero">
+    <h1>From Zero to <span class="highlight">Tested Idea</span></h1>
+    <p class="subtitle">סדנת Ideation עם AI לארגונים - 4 שעות שמייצרות רעיון מאומת</p>
+    <p class="description">סדנא אינטנסיבית שבה צוותים עוברים תהליך מלא של יצירת רעיון, בדיקתו ובנייתו - עם כלי AI מתקדמים. מהרעיון הראשוני להחלטה עסקית מבוססת דאטה.</p>
+    <a href="#contact" class="btn-primary">בואו נדבר על הסדנא בארגון שלכם</a>
+  </div>
+
+  <!-- למי הסדנא מיועדת -->
+  <section>
+    <h2>למי הסדנא מיועדת?</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="16" r="8" stroke="#007AFF" stroke-width="2"/>
+          <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>מנהלי חדשנות</h3>
+        <p>מובילי חדשנות וחדשנות ארגונית המחפשים כלים מעשיים ליצירת רעיונות ואימותם</p>
+      </div>
+      <div class="card">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="12" width="32" height="24" rx="2" stroke="#007AFF" stroke-width="2"/>
+          <path d="M16 20h16M16 28h12" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>מנהלי מוצר</h3>
+        <p>מנהלי מוצר ופיתוח עסקי שרוצים להאיץ תהליכי אימות והתמקדות</p>
+      </div>
+      <div class="card">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 8v32M8 24h32" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="16" stroke="#007AFF" stroke-width="2"/>
+        </svg>
+        <h3>צוותים אסטרטגיים</h3>
+        <p>צוותי אסטרטגיה וייזום שמחפשים מסגרת עבודה מובנית ומהירה</p>
+      </div>
+      <div class="card">
+        <svg class="card-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 8l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8l4-8z" stroke="#007AFF" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <h3>מנהלים בכירים</h3>
+        <p>מנהלים בכירים המחפשים כלים לקבלת החלטות מושכלות ומבוססות דאטה</p>
       </div>
     </div>
-    <div class="hero-stats fade-in d2">
-      <div class="stat-card">
-        <div class="stat-number">26</div>
-        <div class="stat-label">שנות מומחיות בייעוץ, חינוך ופיתוח ארגוני</div>
+  </section>
+
+  <!-- מסע של 6 שלבים -->
+  <section class="section-bg">
+    <h2>מסע של 6 שלבים</h2>
+    <p class="section-intro">תהליך מובנה שמוביל מרעיון ראשוני להחלטה עסקית ברורה, עם כלי AI מתקדמים בכל שלב</p>
+    
+    <div class="stages-grid">
+      <!-- שלב 1 -->
+      <div class="stage">
+        <div class="stage-number">
+          <svg class="stage-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="12" stroke="#007AFF" stroke-width="2"/>
+            <circle cx="20" cy="20" r="3" fill="#007AFF"/>
+          </svg>
+        </div>
+        <div class="stage-content">
+          <span class="stage-tag">Gemini</span>
+          <h3>מחקר שוק וטרנדים</h3>
+          <p>סריקת טרנדים בשוק, זיהוי בעיות שלא נפתרו, וניתוח gaps קיימים. מטרה: למצוא איפה יש צורך אמיתי שעדיין לא נענה.</p>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">100X</div>
-        <div class="stat-label">מסגרת Transformation לצמיחה מואצת</div>
+
+      <!-- שלב 2 -->
+      <div class="stage">
+        <div class="stage-number">
+          <svg class="stage-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 8l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6z" stroke="#007AFF" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stage-content">
+          <span class="stage-tag">Gemini</span>
+          <h3>יצירת רעיונות</h3>
+          <p>Brainstorming מבוסס דאטה מהממצאים. המרת problems לרעיונות פוטנציאליים. כל משתתף מגבש 3 רעיונות ראשוניים.</p>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-label">ספרים מקצועיים בתחומי חינוך ואסטרטגיה</div>
+
+      <!-- שלב 3 -->
+      <div class="stage">
+        <div class="stage-number">
+          <svg class="stage-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="14" r="6" stroke="#007AFF" stroke-width="2"/>
+            <path d="M10 32c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="stage-content">
+          <span class="stage-tag">Gemini</span>
+          <h3>בניית פרסונה</h3>
+          <p>יצירת פרסונות מבוססות דאטה של הלקוח האידיאלי. המחשה אינטראקטיבית של הפרסונה והכנת שאלות לראיונות אימות.</p>
+        </div>
+      </div>
+
+      <!-- שלב 4 -->
+      <div class="stage">
+        <div class="stage-number">
+          <svg class="stage-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 20l8 8L32 12" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stage-content">
+          <span class="stage-tag">Gemini</span>
+          <h3>אימות הנחות</h3>
+          <p>בניית assumption map - מה צריך להיות נכון כדי שהרעיון יעבוד? ראיונות מדומים עם AI personas וסינתוז תובנות.</p>
+        </div>
+      </div>
+
+      <!-- שלב 5 -->
+      <div class="stage">
+        <div class="stage-number">
+          <svg class="stage-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="20" height="20" rx="2" stroke="#007AFF" stroke-width="2"/>
+            <path d="M16 18h8M16 22h6" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="stage-content">
+          <span class="stage-tag">Gemini Canvas</span>
+          <h3>בניית פרוטוטייפ</h3>
+          <p>בניית אפליקציה מלאה ב-Gemini Canvas: כפתור 'אני מפחד עכשיו', תרגיל נשימה חזותי, משפט מרגיע משתנה, רשימת 'מה עוזר לי'. ממשק RTL, צבעים רגועים, כפתורים גדולים.</p>
+        </div>
+      </div>
+
+      <!-- שלב 6 -->
+      <div class="stage">
+        <div class="stage-number">
+          <svg class="stage-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 8v24M12 20l8 8 8-8" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stage-content">
+          <span class="stage-tag">Gemini</span>
+          <h3>החלטה</h3>
+          <p>ניקוד הרעיון לפי קריטריונים: market size, feasibility, competition, passion. החלטה: לרדוף או לא לרדוף?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- התוצרים -->
+  <div class="deliverables-section">
+    <h2>התוצר הסופי</h2>
+    <p class="section-intro">מה יוצאים עם זה מהסדנא</p>
+    
+    <div class="deliverables-grid">
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 8v32M8 24h32" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>רעיון עסקי מאומת</h3>
+        <p>רעיון מבוסס דאטה קונקרטי עם תובנות שוק ופרסונות ממוקדות</p>
+      </div>
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="32" height="32" rx="4" stroke="#007AFF" stroke-width="2"/>
+          <path d="M16 20h16M16 28h12" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>פרוטוטייפ מושלם</h3>
+        <p>אפליקציה אינטראקטיבית עובדת שמדגימה את הרעיון</p>
+      </div>
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="16" stroke="#007AFF" stroke-width="2"/>
+          <path d="M24 16v8l6 4" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3>מפת הנחות לאימות</h3>
+        <p>רשימה מסודרת של הנחות לבדיקה בשטח עם עדיפויות ברורות</p>
+      </div>
+      <div class="deliverable-card">
+        <svg class="deliverable-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 20l8 8L32 12" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="24" r="16" stroke="#007AFF" stroke-width="2"/>
+        </svg>
+        <h3>החלטת GO/NO-GO</h3>
+        <p>ציון מבוסס קריטריונים והמלצה ברורה: להמשיך או לא</p>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ABOUT -->
-<div id="about" class="section-wrap alt">
-  <div class="inner">
-    <div class="about-grid">
-      <div class="about-text">
-        <span class="section-tag fade-in">אודות</span>
-        <h2 class="section-title fade-in d1">חשיבה אסטרטגית.<br/><span>שינוי שנמדד.</span></h2>
-        <div class="divider fade-in d1"></div>
-        <p class="fade-in d2">זהר אוריין היא יועצת אסטרטגית, מחנכת בכירה ומובילת תהליכי טרנספורמציה דיגיטלית עם <strong>26 שנות ניסיון</strong> בפיתוח ארגוני, חינוך מנהיגותי ויישום מדיניות שינוי.</p>
-        <p class="fade-in d3">היא מייסדת מסגרת <strong>Triple Impact</strong>: גישה ייחודית המשלבת ראייה אסטרטגית, תרבות ארגונית ויישום AI פרקטי לתוצאות שמתגשמות בשטח. הגישה שלה אינה מתעכבת על כלים, אלא על <strong>תפיסת העולם שמאחוריהם</strong>.</p>
-        <p class="fade-in d4">תפיסת <strong>AI Next Layer</strong> מציגה את הבינה המלאכותית לא כגורם מחליף, אלא כשכבת חשיבה נוספת שמרחיבה את הקוגניציה האנושית ומאפשרת עומק, מהירות ודיוק שלא ניתן להשיג בדרכים אחרות.</p>
-      </div>
-      <div class="about-visual fade-in d2">
-        <div class="about-chip"><span class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg></span><div class="label">מוח דיגיטלי</div></div>
-        <div class="about-chip"><span class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3ab5e6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><div class="label">שינוי תרבותי</div></div>
-        <div class="about-chip"><span class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f4813f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.09 12.56A1 1 0 0 0 5 14h7l-1 8 8.91-10.56A1 1 0 0 0 19 10h-7l1-8z"/></svg></span><div class="label">AI Next Layer</div></div>
-        <div class="about-chip"><span class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><div class="label">Triple Impact</div></div>
-        <div class="about-chip wide"><span class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3ab5e6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="12" y1="6" x2="16" y2="6"/><line x1="12" y1="10" x2="16" y2="10"/></svg></span><div class="label">3 ספרים מקצועיים | 26 שנות מומחיות | מרצה ומחנכת</div></div>
+  <!-- על המנחה -->
+  <section id="about">
+    <h2>על המנחה</h2>
+    <div class="about-card">
+      <div class="about-image">ז</div>
+      <div class="about-content">
+        <h3>זהר אוריין</h3>
+        <p>יועצת אסטרטגית עם 26 שנות ניסיון בהטמעת טכנולוגיות, חדשנות ושינוי ארגוני.</p>
+        <p>מתמחה ביישום בינה מלאכותית גנרטיבית בארגונים ובהדרכת מנהלים בכירים בתהליכי חשיבה אסטרטגית ופיתוח מוצר.</p>
+        <p>עבדתי עם ארגונים מובילים בישראל ובארה"ב.</p>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">26</div>
+            <div class="stat-label">שנות ניסיון</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">3</div>
+            <div class="stat-label">ספרים</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">ארגונים</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- EXPERTISE -->
-<div id="expertise" class="section-wrap">
-  <div class="inner">
-    <span class="section-tag fade-in">תחומי מומחיות</span>
-    <h2 class="section-title fade-in d1">ערך שנבנה <span>בעומק</span></h2>
-    <div class="divider fade-in d1"></div>
-    <p class="section-subtitle fade-in d2">שישה תחומי ליבה שבהם מובילת תהליכים, יוצרת שינוי ומניבה תוצאות מדידות לארגונים, למנהלים ולצוותים.</p>
-    <div class="expertise-grid">
-      <div class="expertise-card fade-in">
-        <div class="expertise-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><line x1="9" y1="7" x2="9" y2="4"/><line x1="12" y1="7" x2="12" y2="4"/><line x1="15" y1="7" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="17"/><line x1="12" y1="20" x2="12" y2="17"/><line x1="15" y1="20" x2="15" y2="17"/><line x1="7" y1="9" x2="4" y2="9"/><line x1="7" y1="12" x2="4" y2="12"/><line x1="7" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="17" y2="9"/><line x1="20" y1="12" x2="17" y2="12"/><line x1="20" y1="15" x2="17" y2="15"/></svg></div>
-        <h3 class="expertise-title">הטמעת AI בארגון</h3>
-        <p class="expertise-desc">ליווי אסטרטגי מלא להטמעת בינה מלאכותית: מגיבוש חזון ועד שגרת עבודה יומית. בניית רוד-מאפ מותאם, הדרכות פרקטיות וליווי שוטף לביצוע בפועל.</p>
-      </div>
-      <div class="expertise-card fade-in d1">
-        <div class="expertise-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f4813f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-        <h3 class="expertise-title">טרנספורמציה דיגיטלית</h3>
-        <p class="expertise-desc">הובלת תהליכי שינוי ארגוני מן העומק: שינוי תפיסות, תהליכים ותרבות, תוך שימוש בטכנולוגיה כמנוע צמיחה אסטרטגי ולא ככלי עזר.</p>
-      </div>
-      <div class="expertise-card fade-in d2">
-        <div class="expertise-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3ab5e6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-        <h3 class="expertise-title">סדנאות והדרכות</h3>
-        <p class="expertise-desc">סדנאות AI עצימות ומותאמות לצוותים ולמנהלים בכירים: חוויתיות, מעמיקות ורוויות בכלים ותובנות שניתן ליישם מיד למחרת.</p>
-      </div>
-      <div class="expertise-card fade-in d1">
-        <div class="expertise-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
-        <h3 class="expertise-title">אסטרטגיית חדשנות</h3>
-        <p class="expertise-desc">פיתוח אסטרטגיות חדשנות המשלבות AI, חשיבה עתידנית ומסגרות פעולה. לארגונים שבוחרים להוביל את השינוי ולא לרדוף אחריו.</p>
-      </div>
-      <div class="expertise-card fade-in d2">
-        <div class="expertise-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-        <h3 class="expertise-title">אוטומציות וכישורי AI</h3>
-        <p class="expertise-desc">תכנון ובניית זרימות עבודה אוטומטיות, Prompt Engineering ברמת מומחה ופיתוח כישורי AI הכרחיים לעידן הטרנספורמציה הדיגיטלית.</p>
-      </div>
-      <div class="expertise-card fade-in d3">
-        <div class="expertise-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f4813f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3 class="expertise-title">מחקר ומודיעין</h3>
-        <p class="expertise-desc">שימוש בכלי AI מתקדמים לניתוח שוק מעמיק, בינת תחרות ויצירת תובנות אסטרטגיות שמניעות החלטות ניהוליות מהותיות.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- METHODOLOGY -->
-<div id="methodology" class="section-wrap alt">
-  <div class="inner">
-    <span class="section-tag fade-in">מתודולוגיה</span>
-    <h2 class="section-title fade-in d1">שלושה שלבים.<br/><span>שינוי אמיתי.</span></h2>
-    <div class="divider fade-in d1"></div>
-    <p class="section-subtitle fade-in d2">מסגרת פעולה שנבנתה מניסיון של 26 שנה ומיושמת בארגונים שבחרו להוביל טרנספורמציה בר-קיימא.</p>
-    <div class="phases">
-      <div class="phase fade-in">
-        <div class="phase-num">01</div>
-        <div class="phase-label">שלב ראשון</div>
-        <h3 class="phase-title">FOMO</h3>
-        <p class="phase-desc">יצירת מודעות ביקורתית: חשיפת הפער בין מה שהארגון עושה למה שכבר קורה בעולם. ממצב של אדישות לתחושת דחיפות אמיתית.</p>
-      </div>
-      <div class="phase fade-in d1">
-        <div class="phase-num">02</div>
-        <div class="phase-label">שלב שני</div>
-        <h3 class="phase-title">Sandbox</h3>
-        <p class="phase-desc">יצירת סביבת ניסוי בטוחה ומכוּונת: פיילוטים מהירים, למידה מכשלים וגיבוש תובנות, בלי לסכן את הפעילות השוטפת של הארגון.</p>
-      </div>
-      <div class="phase fade-in d2">
-        <div class="phase-num">03</div>
-        <div class="phase-label">שלב שלישי</div>
-        <h3 class="phase-title">Touchdown</h3>
-        <p class="phase-desc">נחיתה מלאה בשטח: שילוב AI בתהליכי היומיום, בניית שגרות ארגוניות ומדידת השפעה, עד שהטרנספורמציה הופכת לחלק מהזהות הארגונית.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TOOLS -->
-<div id="tools" class="section-wrap">
-  <div class="inner">
-    <span class="section-tag fade-in">ארגז הכלים</span>
-    <h2 class="section-title fade-in d1">שליטה מלאה <span>בפלטפורמות המובילות</span></h2>
-    <div class="divider fade-in d1"></div>
-    <p class="section-subtitle fade-in d2">הפלטפורמות הטובות בעולם, מוכרות לעומק ומופעלות ברמת מומחה: מניהול שיחה ועד ליצירת מערכות אוטומציה מלאות.</p>
-    <div class="tools-grid">
-      <div class="tool-card fade-in"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 19h20L12 2z"/><line x1="12" y1="9" x2="12" y2="14"/></svg></div><div><div class="tool-name">Claude / Claude Code</div><div class="tool-sub">Anthropic | יצירה ופיתוח</div></div></div>
-      <div class="tool-card fade-in d1"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3ab5e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div><div class="tool-name">ChatGPT / GPTs</div><div class="tool-sub">OpenAI | סוכנים מותאמים</div></div></div>
-      <div class="tool-card fade-in d2"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f4813f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><line x1="2" y1="9" x2="22" y2="9"/></svg></div><div><div class="tool-name">Gemini / Deep Research</div><div class="tool-sub">Google | מחקר מעמיק</div></div></div>
-      <div class="tool-card fade-in d3"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div><div class="tool-name">NotebookLM</div><div class="tool-sub">Google | ניתוח מסמכים</div></div></div>
-      <div class="tool-card fade-in"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3ab5e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/><line x1="10" y1="7" x2="10" y2="13"/><line x1="7" y1="10" x2="13" y2="10"/></svg></div><div><div class="tool-name">Perplexity</div><div class="tool-sub">חיפוש ומחקר חכם</div></div></div>
-      <div class="tool-card fade-in d1"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f4813f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="tool-name">Gamma</div><div class="tool-sub">מצגות AI מרהיבות</div></div></div>
-      <div class="tool-card fade-in d2"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.06 11.9l8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1 1 2.65 2.02 5 2.02 3 0 5-1.98 5-5.02 0-1.66-1.34-3.04-3-3.04z"/></svg></div><div><div class="tool-name">Midjourney</div><div class="tool-sub">יצירת תמונות AI</div></div></div>
-      <div class="tool-card fade-in d3"><div class="tool-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3ab5e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><div><div class="tool-name">n8n</div><div class="tool-sub">אוטומציות וזרימות עבודה</div></div></div>
-    </div>
-  </div>
-</div>
-
-<!-- IMPACT -->
-<div id="impact" class="section-wrap impact-section">
-  <div class="inner">
-    <span class="section-tag fade-in">השפעה שנמדדת</span>
-    <h2 class="section-title fade-in d1">מספרים שמגדירים <span>עומק ניסיון</span></h2>
-    <div class="divider fade-in d1"></div>
-    <div class="impact-grid">
-      <div class="impact-card fade-in"><div class="impact-number">26</div><div class="impact-label">שנות מומחיות מקצועית</div></div>
-      <div class="impact-card fade-in d1"><div class="impact-number">3</div><div class="impact-label">ספרים מקצועיים שפורסמו</div></div>
-      <div class="impact-card fade-in d2"><div class="impact-number">100X</div><div class="impact-label">מסגרת טרנספורמציה מוכחת</div></div>
-      <div class="impact-card fade-in d3"><div class="impact-number">AI+</div><div class="impact-label">מובילת פלטפורמות בינה מלאכותית</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div id="contact" class="section-wrap">
-  <div class="inner contact-center">
-    <span class="section-tag fade-in">צור קשר</span>
-    <h2 class="section-title fade-in d1">כאן <span>מתחיל השינוי</span></h2>
-    <div class="divider fade-in d1"></div>
-    <p class="section-subtitle fade-in d2">אם הארגון שלך יודע שהגיע הזמן לנוע — אני כאן. שיחת אבחון ראשונה, ישירה ופרקטית, בלי מצגות מיותרות.</p>
-    <div class="contact-card fade-in d2">
-      <div class="contact-items">
-        <a href="mailto:zohar.urian@gmail.com" class="contact-item">
-          <span class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e91e8c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-          zohar.urian@gmail.com
-        </a>
-        <a href="tel:0542383634" class="contact-item">
-          <span class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3ab5e6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.8-1.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-          054-238-3634
-        </a>
-      </div>
-      <a href="mailto:zohar.urian@gmail.com" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;">
-        שלחי לי הודעה ←
+  <!-- יצירת קשר -->
+  <section id="contact" class="contact-section">
+    <h2>מעוניינים לקיים את הסדנא בארגון?</h2>
+    <p class="section-intro">שיחת היכרות ראשונה, ישירה ופרקטית, בלי מצגות מיותרות</p>
+    
+    <div class="contact-info">
+      <a href="tel:0542383634" class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        054-238-3634
+      </a>
+      <a href="mailto:zohar.urian@gmail.com" class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke="#007AFF" stroke-width="2"/>
+          <path d="M3 7l9 6 9-6" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        zohar.urian@gmail.com
       </a>
     </div>
-  </div>
-</div>
 
-<footer>
-  <div class="footer-brand">Triple Impact © 2025</div>
-  <div>זהר אוריין | יועצת אסטרטגית ומומחית AI</div>
-</footer>
+    <a href="mailto:zohar.urian@gmail.com" class="btn-primary">בואו נדבר</a>
+  </section>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 זהר אוריין | יועצת אסטרטגית ומומחית AI</p>
+  </footer>
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  function animateCounter(el, target) {
-    const isNum = /^\d+$/.test(target);
-    if (!isNum) { el.textContent = target; return; }
-    const num = parseInt(target);
-    let cur = 0;
-    const step = Math.ceil(num / 60);
-    const t = setInterval(() => {
-      cur = Math.min(cur + step, num);
-      el.textContent = cur;
-      if (cur >= num) clearInterval(t);
-    }, 25);
-  }
-
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('.impact-number, .stat-number').forEach(el => {
-          const v = el.textContent;
-          el.textContent = isNaN(parseInt(v)) ? v : '0';
-          setTimeout(() => animateCounter(el, v), 300);
-        });
-        counterObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('.impact-grid, .hero-stats').forEach(el => counterObs.observe(el));
-</script>
 </body>
 </html>
