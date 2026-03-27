@@ -365,6 +365,69 @@
       height: 24px;
     }
 
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 60px auto 40px;
+      background: #F5F5F7;
+      padding: 40px;
+      border-radius: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+      text-align: right;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-family: 'Calibri', sans-serif;
+      border: 1px solid #E5E5E7;
+      border-radius: 8px;
+      background: white;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #007AFF;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: #007AFF;
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .form-submit:hover {
+      opacity: 0.85;
+    }
+
     /* Footer */
     footer {
       background: #F5F5F7;
@@ -623,8 +686,38 @@
   <!-- יצירת קשר -->
   <section id="contact" class="contact-section">
     <h2>מעוניינים לקיים את הסדנא בארגון?</h2>
-    <p class="section-intro">שיחת היכרות ראשונה, ישירה ופרקטית, בלי מצגות מיותרות</p>
+    <p class="section-intro">השאירו פרטים ונחזור אליכם בהקדם</p>
     
+    <!-- טופס יצירת קשר -->
+    <form action="https://formsubmit.co/zohar.urian@gmail.com" method="POST" class="contact-form">
+      <!-- Formsubmit Configuration -->
+      <input type="hidden" name="_subject" value="הרשמה חדשה לסדנת Ideation">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      
+      <div class="form-group">
+        <label for="name">שם מלא *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">אימייל *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="company">שם החברה/ארגון *</label>
+        <input type="text" id="company" name="company" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">הודעה (אופציונלי)</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+      
+      <button type="submit" class="form-submit">שלחו פרטים</button>
+    </form>
+
     <div class="contact-info">
       <a href="tel:0542383634" class="contact-item">
         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -640,8 +733,6 @@
         zohar.urian@gmail.com
       </a>
     </div>
-
-    <a href="mailto:zohar.urian@gmail.com" class="btn-primary">בואו נדבר</a>
   </section>
 
   <!-- Footer -->
